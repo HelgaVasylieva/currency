@@ -15,4 +15,3 @@ class ContactUs(models.Model):
     email_to = models.EmailField()
     subject = models.CharField(max_length=64)
     message = models.CharField(max_length=500)
-

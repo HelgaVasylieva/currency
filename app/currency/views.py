@@ -19,7 +19,7 @@ def contactus(request):
 
     contactus_list = []
     for contact in ContactUs.objects.all():
-        html_string = f'ID: {contact.id}, email_from: {contact.email_from}, email_to: {contact.email_to}, subject: {contact.subject} <br>'
+        html_string = f'ID: {contact.id}, email_from: {contact.email_from}, email_to: {contact.email_to},' \
+                      f' subject: {contact.subject} <br>'
         contactus_list.append(html_string)
     return HttpResponse(str(contactus_list))
-
