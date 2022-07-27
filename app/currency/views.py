@@ -1,25 +1,22 @@
-from django.http import HttpResponse
+from django.http import HttpResponse # noqa
+
 from currency.models import Rate, ContactUs
+from django.shortcuts import render
 
 
-def greeting(request):
-    return HttpResponse('HELLO WORLD')
+def index(request):
+    return render(request, 'index.html')
 
 
 def rate_list(request):
-
-    rate_list = []
-    for rate in Rate.objects.all():
-        html_string = f'ID: {rate.id}, sale: {rate.sale}, buy: {rate.buy} <br>'
-        rate_list.append(html_string)
-    return HttpResponse(str(rate_list))
+    context = {
+       'rate_list': Rate.objects.all()
+    }
+    return render(request, 'rate_list.html', context=context)
 
 
 def contactus(request):
-
-    contactus_list = []
-    for contact in ContactUs.objects.all():
-        html_string = f'ID: {contact.id}, email_from: {contact.email_from}, email_to: {contact.email_to},' \
-                      f' subject: {contact.subject} <br>'
-        contactus_list.append(html_string)
-    return HttpResponse(str(contactus_list))
+    context = {
+        'contact_list': ContactUs.objects.all()
+    }
+    return render(request, 'contact_list.html', context=context)
