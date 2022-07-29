@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Source Create{% endblock title %}
+
+{%  block main_content %}
+    Source Create
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Send</button>
+    </form>
+{% endblock main_content %}
