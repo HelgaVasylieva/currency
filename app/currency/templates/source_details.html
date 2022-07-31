@@ -3,7 +3,19 @@
 {% block title %}Source DETAILS{% endblock title %}
 
 {% block main_content %}
-    <div>ID: {{ instance.id }}</div>
-    <div>Source_url: {{ instance.source_url}}</div>
-    <div>Name: {{ instance.name }}</div>
+    <table>
+    <caption>SOURCE DETAILS</caption>
+    <tr>
+        <td>ID:</td>
+        <td>Source_url:</td>
+        <td>Name:</td>
+    </tr>
+
+        <tr>
+            <td>{{ instance.id }}</td>
+            <td>{{ instance.source_url}}</td>
+            <td>{{ instance.name }}</td>
+        </tr>
+    </table>
+
 {% endblock main_content %}

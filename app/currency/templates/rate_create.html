@@ -3,12 +3,17 @@
 {% block title %}Rate Create{% endblock title %}
 
 {%  block main_content %}
-    Rate Create
+    <table>
+        <caption>Rate Create</caption>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+        <td style="text-align: left">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-        <button type="submit">Send</button>
-    </form>
+            <button style="padding: 7px 180px" type="submit">Send</button>
+
+        </form>
+        </td>
+    </table>
 {% endblock main_content %}

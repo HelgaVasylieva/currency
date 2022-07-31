@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% block main_content %}
-    <div>Currency Exchange Project</div>
-    <div>
+    <table>
+        <caption>Currency Exchange Project</caption>
+        <tr>
+            <td>View List:</td><td> <a href="/rate/list">Click Here</a></td>
+        </tr>
 
-        View List: <a href="/rate/list">Click Here</a>
-    </div>
-    <div>
-        Contact List: <a href="/contactus/list/">Click Here</a>
-    </div>
-    <div>
-        Source List: <a href="/source/list/">Click Here</a>
-    </div>
+        <tr>
+            <td>Contact List:</td> <td><a href="/contactus/list/">Click Here</a></td>
+        </tr>
+
+        <tr>
+            <td>Source List:</td> <td><a href="/source/list/">Click Here</a></td>
+        </tr>
+    </table>
+
 {% endblock main_content %}

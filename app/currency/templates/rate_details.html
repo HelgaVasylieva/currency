@@ -3,7 +3,18 @@
 {% block title %}RATE DETAILS{% endblock title %}
 
 {% block main_content %}
-    <div>ID: {{ instance.id }}</div>
-    <div>Buy: {{ instance.buy }}</div>
-    <div>Sale: {{ instance.sale }}</div>
+    <table>
+    <caption>RATE DETAILS</caption>
+    <tr>
+        <td>ID:</td>
+        <td>Buy:</td>
+        <td>Sale:</td>
+    </tr>
+
+        <tr>
+            <td>{{ instance.id }}</td>
+            <td>{{ instance.buy }}</td>
+            <td>{{ instance.sale }}</td>
+        </tr>
+    </table>
 {% endblock main_content %}

@@ -3,11 +3,11 @@
 {% block title %}Source DELETE{% endblock title %}
 
 {% block main_content %}
-    Source Delete
+    <h1>Source Delete</h1>
 
-    <div>Delete object with id {{ object.id }}?</div>
+    <p>Delete object with id {{ object.id }}?</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Delete</button>
+        <button style="padding: 7px 100px" type="submit">Delete</button>
     </form>
 {% endblock main_content %}

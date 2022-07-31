@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}SOURCE LIST{% endblock title %}
 
 {% block main_content %}
-    <div><a href="/source/create/">Create new source</a> </div>
+    <table class="center">
+     <caption>SOURCE TABLE</caption>
+        <tr>
+            <th>ID</th>
+            <th>Source_url</th>
+            <th>Name</th>
 
-    {% for source in source_list %}
-        <div>ID: {{ source.id }}, Source_url: {{ source.source_url }}, Name: {{ source.name }}
-            <a href="/source/details/{{ source.id }}/">view details</a>
-            <a href="/source/update/{{ source.id }}/">edit</a>
-            <a href="/source/delete/{{ source.id }}/">delete</a>
+            <td><a href="/source/create/">Create new source</a> </td>
 
-        </div>
-    {% endfor %}
+        </tr>
+            {% for source in source_list %}
+                <tr>
+                    <td>{{ source.id }}</td>
+                    <td>{{ source.source_url }}</td>
+                    <td>{{ source.name }}</td>
+
+                    <td>
+                         <a href="/source/details/{{ source.id }}/">view details</a>
+                        <a href="/source/update/{{ source.id }}/">edit</a>
+                        <a href="/source/delete/{{ source.id }}/">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+
 {% endblock main_content %}
