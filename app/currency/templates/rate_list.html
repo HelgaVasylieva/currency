@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block main_content %}
-    <div><a href="/rate/create/">Create new rate</a> </div>
 
-    <table>
-        <caption>Currency Table</caption>
+
+    <table class="center">
+
+        <caption>CURRENCY TABLE</caption>
         <tr>
             <th>ID</th>
             <th>Sale</th>
             <th>Buy</th>
             <th>Source</th>
+            <td><a href="/rate/create/">Create new rate</a> </td>
+
         </tr>
             {% for rate in rate_list %}
                 <tr>

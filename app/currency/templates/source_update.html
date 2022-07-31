@@ -3,12 +3,15 @@
 {% block title %}Source Update{% endblock title %}
 
 {%  block main_content %}
-    Source Update
+    <table>
+        <caption>Source Update</caption>
+            <td style="text-align: left">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Send</button>
-    </form>
+                <button style="padding: 7px 120px" type="submit">Send</button>
+            </form>
+            </td>
+    </table>
 {% endblock main_content %}

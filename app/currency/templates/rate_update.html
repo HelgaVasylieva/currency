@@ -3,12 +3,16 @@
 {% block title %}Rate Update{% endblock title %}
 
 {%  block main_content %}
-    Rate Update
+    <table>
+        <caption>Rate Update</caption>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+            <td style="text-align: left">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-        <button type="submit">Send</button>
-    </form>
+                <button style="padding: 7px 180px" type="submit">Send</button>
+            </form>
+            </td>
+        </table>
 {% endblock main_content %}

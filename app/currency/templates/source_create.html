@@ -3,12 +3,16 @@
 {% block title %}Source Create{% endblock title %}
 
 {%  block main_content %}
-    Source Create
+    <table>
+        <caption>Source Create</caption>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+        <td style="text-align: left">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-        <button type="submit">Send</button>
-    </form>
+                <button style="padding: 7px 120px" type="submit">Send</button>
+            </form>
+        </td>
+    </table>
 {% endblock main_content %}
