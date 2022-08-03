@@ -3,7 +3,7 @@ django-extensions==3.2.0
 ipython
 
 #dev
-debug-toolbar
+django-debug-toolbar
 
 #flake
 flake8==4.0.1
