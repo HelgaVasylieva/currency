@@ -4,15 +4,15 @@
     <table>
         <caption>Currency Exchange Project</caption>
         <tr>
-            <td>View List:</td><td> <a href="/rate/list">Click Here</a></td>
+            <td>View List:</td><td> <a href="{% url 'currency:rate_list' %}">Click Here</a></td>
         </tr>
 
         <tr>
-            <td>Contact List:</td> <td><a href="/contactus/list/">Click Here</a></td>
+            <td>Contact List:</td> <td><a href="{% url 'currency:contact_list' %}">Click Here</a></td>
         </tr>
 
         <tr>
-            <td>Source List:</td> <td><a href="/source/list/">Click Here</a></td>
+            <td>Source List:</td> <td><a href="{% url 'currency:source_list' %}">Click Here</a></td>
         </tr>
     </table>
 

@@ -11,7 +11,7 @@
             <th>Sale</th>
             <th>Buy</th>
             <th>Source</th>
-            <td><a href="/rate/create/">Create new rate</a> </td>
+            <td><a href="{% url 'currency:rate_create' %}">Create new rate</a> </td>
 
         </tr>
             {% for rate in rate_list %}
@@ -21,9 +21,9 @@
                     <td>{{ rate.buy }}</td>
                     <td>{{ rate.source }}</td>
                     <td>
-                        <a href="/rate/details/{{ rate.id }}/">view details</a>
-                        <a href="/rate/update/{{ rate.id }}/">edit</a>
-                        <a href="/rate/delete/{{ rate.id }}/">delete</a>
+                        <a href="{% url 'currency:rate_details' rate.id %}">view details</a>
+                        <a href="{% url 'currency:rate_update' rate.id %}">edit</a>
+                        <a href="{% url 'currency:rate_delete' rate.id %}">delete</a>
                     </td>
                 </tr>
             {% endfor %}
