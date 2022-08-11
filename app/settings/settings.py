@@ -38,14 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
+    'import_export',
     'django_extensions',
     'debug_toolbar',
+    'rangefilter',
+    'silk',
 
     'currency',
 ]
 
 MIDDLEWARE = [
+    'silk.middleware.SilkyMiddleware',
+
+
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'settings.urls'
@@ -117,6 +123,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+SILKY_PYTHON_PROFILER = True
 
 
 STATIC_URL = 'static/'
