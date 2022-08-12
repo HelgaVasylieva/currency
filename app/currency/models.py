@@ -1,9 +1,10 @@
 from django.db import models
+from currency.model_choices import CURRENCY_TYPES
 
 
 class Rate(models.Model):
-    base_currency_type = models.CharField(max_length=5)
-    currency_type = models.CharField(max_length=5)
+    base_currency_type = models.CharField(max_length=5, choices=CURRENCY_TYPES)
+    currency_type = models.CharField(max_length=5, choices=CURRENCY_TYPES)
     sale = models.DecimalField(max_digits=8, decimal_places=3)
     buy = models.DecimalField(max_digits=8, decimal_places=3)
     source = models.CharField(max_length=64)
