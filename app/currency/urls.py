@@ -12,6 +12,7 @@ urlpatterns = [
     path('rate/details/<int:pk>/', views.RateDetailsView.as_view(), name='rate_details'),
 
     path('contactus/list/', views.ContactListView.as_view(), name='contact_list'),
+    path('contactus/create/', views.ContactUsCreateView.as_view(), name='contactus_create'),
 
     path('source/list/', views.SourceListView.as_view(), name='source_list'),
     path('source/create/', views.SourceCreateView.as_view(), name='source_create'),
