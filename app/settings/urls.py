@@ -9,11 +9,11 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
+    path('auth/', include('django.contrib.auth.urls')),
+
     path('', views.IndexView.as_view(), name='index'),
 
     path('currency/', include('currency.urls')),
-
-    path('auth/', include('django.contrib.auth.urls')),
 
     path('__debug__/', include('debug_toolbar.urls')),
 
