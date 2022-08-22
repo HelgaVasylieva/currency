@@ -1,44 +1,75 @@
-from django.urls import reverse_lazy
+import io
+import csv
 
-from django.views import generic
-from currency.models import Rate, ContactUs, Source
-from currency.forms import RateForm, SourceForm, ContactUsForm
+from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.conf import settings
+from django.views import generic
+
+from currency.models import Rate, ContactUs, Source
+from currency.forms import RateForm, SourceForm, ContactUsForm
 
 
 class IndexView(generic.TemplateView):
     template_name = 'index.html'
 
 
-class RateListView(generic.ListView):
+class RateListView(LoginRequiredMixin, generic.ListView):
     queryset = Rate.objects.all()
     template_name = 'rate_list.html'
 
 
-class RateCreateView(generic.CreateView):
+class RateCreateView(LoginRequiredMixin, generic.CreateView):
     queryset = Rate.objects.all()
     template_name = 'rate_create.html'
     form_class = RateForm
     success_url = reverse_lazy('currency:rate_list')
 
 
-class RateUpdateView(generic.UpdateView):
+class RateUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     queryset = Rate.objects.all()
     template_name = 'rate_update.html'
     form_class = RateForm
     success_url = reverse_lazy('currency:rate_list')
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class RateDetailsView(generic.DeleteView):
+
+class RateDetailsView(LoginRequiredMixin, generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'rate_details.html'
 
 
-class RateDeleteView(generic.DeleteView):
+class RateDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'rate_delete.html'
     success_url = reverse_lazy('currency:rate_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+class DownloadRateView(generic.View):
+    def get(self, request):
+        csvfile = io.StringIO()
+        spamwriter = csv.writer(csvfile)
+        headers = ['id', 'buy', 'sale']
+        spamwriter.writerow(headers)
+        for rate in Rate.objects.all():
+            row = [
+                rate.id,
+                rate.buy,
+                rate.sale,
+            ]
+            spamwriter.writerow(row)
+
+        csvfile.seek(0)
+        return HttpResponse(csvfile.read(), content_type='text/csv')
 
 
 class SourceListView(generic.ListView):
@@ -101,3 +132,16 @@ class ContactUsCreateView(generic.CreateView):
         )
 
         return response
+
+
+class UserProfileView(LoginRequiredMixin, generic.UpdateView):
+    queryset = get_user_model().objects.all()
+    template_name = 'my_profile.html'
+    success_url = reverse_lazy('index')
+    fields = (
+        'first_name',
+        'last_name',
+    )
+
+    def get_object(self, queryset=None):
+        return self.request.user

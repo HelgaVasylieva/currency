@@ -10,6 +10,7 @@ urlpatterns = [
     path('rate/update/<int:pk>/', views.RateUpdateView.as_view(), name='rate_update'),
     path('rate/delete/<int:pk>/', views.RateDeleteView.as_view(), name='rate_delete'),
     path('rate/details/<int:pk>/', views.RateDetailsView.as_view(), name='rate_details'),
+    path('rate/download/', views.DownloadRateView.as_view(), name='rate_download'),
 
     path('contactus/list/', views.ContactListView.as_view(), name='contact_list'),
     path('contactus/create/', views.ContactUsCreateView.as_view(), name='contactus_create'),
@@ -19,4 +20,7 @@ urlpatterns = [
     path('source/update/<int:pk>/', views.SourceUpdateView.as_view(), name='source_update'),
     path('source/details/<int:pk>/', views.SourceDetailsView.as_view(), name='source_details'),
     path('source/delete/<int:pk>/', views.SourceDeleteView.as_view(), name='source_delete'),
+
+    path('my-profile/', views.UserProfileView.as_view(), name='my_profile'),
+
 ]

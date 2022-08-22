@@ -11,8 +11,8 @@
             <th>Sale</th>
             <th>Buy</th>
             <th>Source</th>
-            <td><a href="{% url 'currency:rate_create' %}">Create new rate</a> </td>
-
+            <td><a href="{% url 'currency:rate_create' %}">Create new rate</a>
+            <a href="{% url 'currency:rate_download' %}">Download rate</a> </td>
         </tr>
             {% for rate in rate_list %}
                 <tr>
