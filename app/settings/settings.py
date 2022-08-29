@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from django.urls import reverse_lazy
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'silk',
 
     'currency',
+    'accounts',
+
 ]
 
 MIDDLEWARE = [
@@ -150,5 +153,13 @@ EMAIL_HOST_PASSWORD = 'qwerty123456qwerty'
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
-LOGOUT_REDIRECT_URL = reverse_lazy('currency:rate_list')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
 LOGIN_URL = reverse_lazy('login')
+
+AUTH_USER_MODEL = 'accounts.User'
+
+HTTP_SCHEMA = 'http'
+DOMAIN = 'localhost:8000'
+
+
+
