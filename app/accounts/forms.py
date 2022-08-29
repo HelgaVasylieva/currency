@@ -75,4 +75,3 @@ class SignUpForm(forms.ModelForm):
             [self.instance.email],
             fail_silently=False,
         )
-

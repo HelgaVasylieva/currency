@@ -21,8 +21,6 @@ class UserActivateView(generic.RedirectView):
     pattern_name = 'index'
 
     def get(self, request, *args, **kwargs):
-        '/accounts/activate/{uuid4()}/'
-
         username = kwargs.pop('username')
         user = get_object_or_404(get_user_model(), username=username)
 
