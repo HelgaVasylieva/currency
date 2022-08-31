@@ -4,10 +4,11 @@
 
 {% block main_content %}
     User Login
-
+    <p>Please, use the following form to log-in. If you don't have an account <a href="{% url "accounts:signup" %}">register here</a></p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+
         <button type="submit">Send</button>
     </form>
 {% endblock main_content %}
