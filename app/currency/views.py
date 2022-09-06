@@ -18,12 +18,12 @@ class IndexView(generic.TemplateView):
     template_name = 'index.html'
 
 
-class RateListView(LoginRequiredMixin, generic.ListView):
-    queryset = Rate.objects.all()
+class RateListView(generic.ListView):
+    queryset = Rate.objects.all().select_related('source')
     template_name = 'rate_list.html'
 
 
-class RateCreateView(LoginRequiredMixin, generic.CreateView):
+class RateCreateView(generic.CreateView):
     queryset = Rate.objects.all()
     template_name = 'rate_create.html'
     form_class = RateForm

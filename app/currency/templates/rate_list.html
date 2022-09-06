@@ -19,7 +19,7 @@
                     <td>{{ rate.id }}</td>
                     <td>{{ rate.sale }}</td>
                     <td>{{ rate.buy }}</td>
-                    <td>{{ rate.source }}</td>
+                    <td>{{ rate.source.name }}</td>
                     <td>
                         <a href="{% url 'currency:rate_details' rate.id %}">view details</a>
                         <a href="{% url 'currency:rate_update' rate.id %}">edit</a>
