@@ -7,7 +7,7 @@ class Rate(models.Model):
     currency_type = models.CharField(max_length=5, choices=CURRENCY_TYPES)
     sale = models.DecimalField(max_digits=8, decimal_places=3)
     buy = models.DecimalField(max_digits=8, decimal_places=3)
-    source = models.CharField(max_length=64)
+    source = models.ForeignKey('currency.Source', on_delete=models.CASCADE, null=True, default=None)
     created = models.DateTimeField(auto_now_add=True)
 
 
