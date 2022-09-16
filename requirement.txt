@@ -4,6 +4,7 @@ ipython
 django-admin-rangefilter
 django-silk
 django-import-export
+celery
 
 #dev
 django-debug-toolbar

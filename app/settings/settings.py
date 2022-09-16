@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from celery.schedules import crontab
 from django.urls import reverse_lazy
 from pathlib import Path
 
@@ -160,3 +161,16 @@ AUTH_USER_MODEL = 'accounts.User'
 
 HTTP_SCHEMA = 'http'
 DOMAIN = 'localhost:8000'
+
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_BEAT_SCHEDULE = {
+    'slow_func': {
+        'task': 'currency.tasks.slow_func',
+        'schedule': crontab(minute='*/1'),
+    },
+    'parse_privatbank': {
+        'task': 'currency.tasks.parse_privatbank',
+        'schedule': crontab(minute='*/1'),
+        # 'schedule': crontab(minute='*/15'),
+    },
+}
