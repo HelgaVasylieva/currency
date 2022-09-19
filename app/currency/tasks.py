@@ -10,16 +10,6 @@ from currency import model_choices as mch
 from currency import consts
 
 
-@shared_task
-def slow_func():
-    from time import sleep
-    print('START')
-    sleep(10)
-    print('END')
-    # send to broker
-    return
-
-
 @shared_task(autoretry_for=(OSError,), retry_kwargs={'max_retries': 5})
 def send_contact_us_email(subject, from_email):
     email_subject = 'ContactUs From Currency Project'
@@ -185,7 +175,6 @@ def parse_vkurse():
         currency_type = currency_type_mapper[rate_data[0]]
         base_currency_type = currency_type_mapper['UAH']
 
-
         try:
             latest_rate = Rate.objects.filter(
                 base_currency_type=base_currency_type,
@@ -205,6 +194,7 @@ def parse_vkurse():
                 sale=sale,
                 source=source,
             )
+
 
 @shared_task
 def parse_tascombank():
@@ -265,11 +255,13 @@ def parse_tascombank():
                 source=source,
             )
 
+
 @shared_task
 def parse_otpbank():
     from currency.models import Rate, Source
 
-    url_4 = 'https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/exchange_rate_by_date.php?curr_date=18.09.2022&ib_code=otp_bank_currency_rates'
+    url_4 = 'https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/exchange_rate_by_date.php?' \
+            'curr_date=18.09.2022&ib_code=otp_bank_currency_rates'
 
     source = Source.objects.get_or_create(code_name=consts.CODE_NAME_OTPBANK, defaults={'source_url': url_4})[0]
 
@@ -318,6 +310,7 @@ def parse_otpbank():
                 sale=sale,
                 source=source,
             )
+
 
 @shared_task
 def parse_nbu():
