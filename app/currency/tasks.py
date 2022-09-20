@@ -266,8 +266,6 @@ def parse_otpbank():
     url_4 = f'https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/' \
             f'exchange_rate_by_date.php?curr_date={curr_date}&ib_code=otp_bank_currency_rates'
 
-
-
     source = Source.objects.get_or_create(code_name=consts.CODE_NAME_OTPBANK, defaults={'source_url': url_4})[0]
 
     response = requests.get(source.source_url)
