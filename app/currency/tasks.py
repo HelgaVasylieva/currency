@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 from celery import shared_task
 from django.conf import settings
@@ -260,8 +261,12 @@ def parse_tascombank():
 def parse_otpbank():
     from currency.models import Rate, Source
 
-    url_4 = 'https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/exchange_rate_by_date.php?' \
-            'curr_date=18.09.2022&ib_code=otp_bank_currency_rates'
+    curr_date = datetime.date.today().strftime("%d.%m.%Y")
+
+    url_4 = f'https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/' \
+            f'exchange_rate_by_date.php?curr_date={curr_date}&ib_code=otp_bank_currency_rates'
+
+
 
     source = Source.objects.get_or_create(code_name=consts.CODE_NAME_OTPBANK, defaults={'source_url': url_4})[0]
 
