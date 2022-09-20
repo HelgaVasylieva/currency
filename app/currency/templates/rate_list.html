@@ -8,18 +8,24 @@
         <caption>CURRENCY TABLE</caption>
         <tr>
             <th>ID</th>
+            <th>Base currency type</th>
+            <th>Currency type</th>
             <th>Sale</th>
             <th>Buy</th>
             <th>Source</th>
+            <th>Created</th>
             <td><a href="{% url 'currency:rate_create' %}">Create new rate</a>
             <a href="{% url 'currency:rate_download' %}">Download rate</a> </td>
         </tr>
             {% for rate in rate_list %}
                 <tr>
                     <td>{{ rate.id }}</td>
+                    <td>{{ rate.base_currency_type }}</td>
+                    <td>{{ rate.currency_type }}</td>
                     <td>{{ rate.sale }}</td>
                     <td>{{ rate.buy }}</td>
                     <td>{{ rate.source.name }}</td>
+                    <td>{{ rate.created }}</td>
                     <td>
                         <a href="{% url 'currency:rate_details' rate.id %}">view details</a>
                         <a href="{% url 'currency:rate_update' rate.id %}">edit</a>
