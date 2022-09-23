@@ -44,13 +44,10 @@ class RateDetailsView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'rate_details.html'
 
 
-class RateDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+class RateDeleteView( generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'rate_delete.html'
     success_url = reverse_lazy('currency:rate_list')
-
-    def test_func(self):
-        return self.request.user.is_superuser
 
 
 class DownloadRateView(generic.View):
@@ -126,6 +123,7 @@ class UserProfileView(LoginRequiredMixin, generic.UpdateView):
     fields = (
         'first_name',
         'last_name',
+        'avatar',
     )
 
     def get_object(self, queryset=None):

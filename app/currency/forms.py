@@ -19,7 +19,8 @@ class SourceForm(forms.ModelForm):
         model = Source
         fields = (
             'source_url',
-            'name'
+            'name',
+            'logo'
         )
 
 
@@ -33,3 +34,8 @@ class ContactUsForm(forms.ModelForm):
             'subject',
             'message'
         )
+
+    email_from = forms.EmailField()
+    email_to = forms.EmailField()
+    subject = forms.CharField()
+    message = forms.CharField(widget=forms.Textarea())

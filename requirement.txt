@@ -4,6 +4,8 @@ ipython
 django-admin-rangefilter
 django-silk
 django-import-export
+django-crispy-forms
+crispy-bootstrap5
 celery
 
 #dev

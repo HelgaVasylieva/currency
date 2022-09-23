@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 {% block title %}Sign Page{% endblock title %}
 
 {% block main_content %}
     Sign Page
 
-    <form method="post">
+    <form method="post" class="my-class">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="reset">Title</button>
-        <button type="submit">Register</button>
+        <div class="col-sm-3">
+            {{ form.username|as_crispy_field }}
+        </div>
+        <div class="col-sm-3">
+            {{ form.email|as_crispy_field }}
+        </div>
+        <div class="col-sm-3">
+            {{ form.password1|as_crispy_field }}
+        </div>
+        <div class="col-sm-3">
+            {{ form.password2|as_crispy_field }}
+        </div>
+        <button style="padding: 7px 80px" type="reset">Title</button>
+        <button style="padding: 7px 80px" type="submit">Register</button>
 
 
     </form>

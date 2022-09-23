@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block main_content %}
-    <table>
+    <table class="table table-dark table-striped table-bordered border-primary">
         <caption>Currency Exchange Project</caption>
         <tr>
-            <td>View List:</td><td> <a href="{% url 'currency:rate_list' %}">Click Here</a></td>
+            <td>View List:</td><td> <a href="{% url 'currency:rate_list' %}" class="btn btn-link">Click Here</a></td>
         </tr>
 
         <tr>
-            <td>Contact List:</td> <td><a href="{% url 'currency:contact_list' %}">Click Here</a></td>
+            <td>Contact List:</td> <td><a href="{% url 'currency:contact_list' %}" class="btn btn-link">Click Here</a></td>
         </tr>
 
         <tr>
-            <td>Source List:</td> <td><a href="{% url 'currency:source_list' %}">Click Here</a></td>
+            <td>Source List:</td> <td><a href="{% url 'currency:source_list' %}" class="btn btn-link">Click Here</a></td>
         </tr>
     </table>
 

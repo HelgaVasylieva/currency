@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rangefilter',
     'silk',
+    'crispy_forms',
+    'crispy_bootstrap5',
 
     'currency',
     'accounts',
@@ -135,6 +137,16 @@ SILKY_PYTHON_PROFILER = True
 
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / '..' / 'static_content' / 'media'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
