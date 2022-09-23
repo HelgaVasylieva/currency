@@ -44,7 +44,7 @@ class RateDetailsView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'rate_details.html'
 
 
-class RateDeleteView( generic.DeleteView):
+class RateDeleteView(generic.DeleteView):
     queryset = Rate.objects.all()
     template_name = 'rate_delete.html'
     success_url = reverse_lazy('currency:rate_list')
