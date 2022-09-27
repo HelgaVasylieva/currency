@@ -1,16 +1,32 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 {% block title %}My Profile{% endblock title %}
 
 {% block main_content %}
     My Profile
 
-    <form method="post">
+    {% if request.user.avatar %}
+        <img src="{{ request.user.avatar.url }}" height="100" width="150">
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="col-sm-2">
+            {{ form.first_name|as_crispy_field }}
+        </div>
+        <div class="col-sm-2">
+            {{ form.last_name|as_crispy_field }}
+        </div>
+        <div class="col-sm-2">
+            {{ form.avatar|as_crispy_field }}
+        </div>
+
         <button type="reset">Reset</button>
         <button type="submit">Send</button>
-        <a href="{% url 'password_reset' %}">Password reset</a>
-        <a href="{% url 'password_change' %}">Password change</a>
+        <a href="{% url 'password_reset' %}" class="btn btn-link">Password reset</a>
+        <a href="{% url 'password_change' %}" class="btn btn-link">Password change</a>
     </form>
 {% endblock main_content %}

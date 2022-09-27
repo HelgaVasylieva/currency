@@ -18,10 +18,15 @@ class ContactUs(models.Model):
     message = models.CharField(max_length=500)
 
 
+def source_logo(instance, filename):
+    return 'logo/{0}/{1}'.format(instance.id, filename)
+
+
 class Source(models.Model):
     source_url = models.CharField(max_length=255)
     name = models.CharField(max_length=64)
     code_name = models.CharField(max_length=16, unique=True)
+    logo = models.FileField(upload_to=source_logo)
 
 
 class ResponseLog(models.Model):

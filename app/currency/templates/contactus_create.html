@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 {% block main_content %}
+
     <strong>{{ title }}</strong>
 
-    <form method="post">
+    <form method="post" class="my-class">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type=submit>Create</button>
+        <div class="col-sm-2">
+            {{ form.email_from|as_crispy_field }}
+        </div>
+        <div class="col-sm-2">
+            {{ form.email_to|as_crispy_field }}
+        </div>
+        <div class="col-sm-4">
+            {{ form.subject|as_crispy_field }}
+        </div>
+        <div class="col-sm-4">
+            {{ form.message|as_crispy_field }}
+        </div>
+
+
+        <button style="padding: 7px 100px" type=submit>Create</button>
     </form>
 
 {% endblock main_content %}

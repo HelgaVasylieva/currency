@@ -3,14 +3,14 @@
 {% block main_content %}
 
 
-    <table class="center">
+    <table class="table table-dark table-striped table-bordered border-primary">
         <caption>Contact Table</caption>
         <tr>
             <th>ID</th>
             <th>Email_from</th>
             <th>Email_to</th>
             <th>Subject</th>
-            <td><a href="{% url 'currency:contactus_create' %}">Create new contact us</a>
+            <td><a href="{% url 'currency:contactus_create' %}" class="btn btn-link">Create new contact us</a>
         </tr>
             {% for contact in contactus_list %}
                 <tr>

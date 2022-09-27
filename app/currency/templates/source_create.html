@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 {% block title %}Source Create{% endblock title %}
 
 {%  block main_content %}
-    <table>
-        <caption>Source Create</caption>
+    Source Create
 
-        <td style="text-align: left">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-sm-2">
+            {{ form.source_url|as_crispy_field }}
+        </div>
+        <div class="col-sm-2">
+            {{ form.name|as_crispy_field }}
+        </div>
 
-                <button style="padding: 7px 120px" type="submit">Send</button>
-            </form>
-        </td>
-    </table>
+        <div class="col-sm-2">
+            {{ form.logo|as_crispy_field }}
+        </div>
+
+        <button style="padding: 7px 130px" type="submit">Send</button>
+    </form>
+
 {% endblock main_content %}
