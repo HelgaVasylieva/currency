@@ -13,6 +13,14 @@ class RateForm(forms.ModelForm):
             'source'
         )
 
+        widgets = {
+            'base_currency_type': forms.TextInput(attrs={'placeholder': 'Base currency'}),
+            'currency_type': forms.TextInput(attrs={'placeholder': 'Currency'}),
+            'sale': forms.TextInput(attrs={'placeholder': 'Sale'}),
+            'buy': forms.TextInput(attrs={'placeholder': 'Buy'}),
+            'source': forms.TextInput(attrs={'placeholder': 'Source'})
+        }
+
 
 class SourceForm(forms.ModelForm):
     class Meta:
