@@ -1,0 +1,24 @@
+<nav aria-label="Search results pages">
+
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ page_obj.previous_page_number }}&{{ filters_params }}">Previous</a></li>
+        {% endif %}
+
+        {% for page_num in page_obj.paginator.page_range %}
+            {% if page_num == page_obj.number %}
+                <li class="page-item active"><a class="page-link" href="?page={{ page_num }}&{{ filters_params }}">{{ page_num }}</a></li>
+            {% endif %}
+            {% if page_num != page_obj.number %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_num }}&{{ filters_params }}">{{ page_num }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&{{ filters_params }}">Next</a></li>
+        {% endif %}
+    </ul>
+
+</nav>

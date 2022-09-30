@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'silk',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_filters',
 
     'currency',
     'accounts',
