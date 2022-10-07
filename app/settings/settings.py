@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_filters',
+    'rest_framework',
 
     'currency',
     'accounts',
@@ -181,27 +182,31 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'currency.tasks.slow_func',
         'schedule': crontab(minute='*/1'),
     },
+    'send_contact_us_email': {
+        'task': 'currency.tasks.send_contact_us_email',
+        'schedule': crontab(minute='*/1')
+    },
     'parse_privatbank': {
         'task': 'currency.tasks.parse_privatbank',
-        'schedule': crontab(minute='*/5'),
+        'schedule': crontab(minute='*/15'),
         # 'schedule': crontab(minute='*/15'),
     },
     'parse_monobank': {
         'task': 'currency.tasks.parse_monobank',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/15'),
         # 'schedule': crontab(minute='*/15'),
     },
     'parse_vkurse': {
         'task': 'currency.tasks.parse_vkurse',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/15'),
     },
     'parse_tascombank': {
         'task': 'currency.tasks.parse_tascombank',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/15'),
     },
     'parse_otpbank': {
         'task': 'currency.tasks.parse_otpbank',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/15'),
     },
     'parse_nbu': {
         'task': 'currency.tasks.parse_nbu',
