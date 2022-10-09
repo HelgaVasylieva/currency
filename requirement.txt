@@ -8,6 +8,7 @@ django-crispy-forms
 crispy-bootstrap5
 django-filter
 celery
+djangorestframework
 
 #dev
 django-debug-toolbar

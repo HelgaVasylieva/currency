@@ -11,6 +11,9 @@ run:
 show_urls:
 	$(manage_py) show_urls
 
+show_urls:
+	$(manage_py) show_urls
+
 migrate:
 	$(manage_py) migrate
 

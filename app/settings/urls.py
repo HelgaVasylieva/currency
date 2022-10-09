@@ -18,6 +18,8 @@ urlpatterns = [
 
     path('accounts/', include('accounts.urls')),
 
+    path('api/', include('api.urls')),
+
     path('__debug__/', include('debug_toolbar.urls')),
 
     path('silk/', include('silk.urls', namespace='silk')),
