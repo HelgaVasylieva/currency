@@ -19,4 +19,3 @@ def load_fixtures(django_db_setup, django_db_blocker):
         )
         for fixture in fixtures:
             call_command('loaddata', f'app/tests/fixtures/{fixture}')
-
