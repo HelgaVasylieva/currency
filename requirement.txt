@@ -9,6 +9,8 @@ crispy-bootstrap5
 django-filter
 celery
 djangorestframework
+djangorestframework-simplejwt
+drf-yasg
 
 #dev
 django-debug-toolbar

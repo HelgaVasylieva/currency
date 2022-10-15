@@ -12,11 +12,11 @@ from currency import consts
 
 
 @shared_task(autoretry_for=(OSError,), retry_kwargs={'max_retries': 5})
-def send_contact_us_email(subject, from_email):
+def send_contact_us_email(subject, email_from):
     email_subject = 'ContactUs From Currency Project'
     body = f'''
     Subject From Client: {subject}
-    Email: {from_email}
+    Email: {email_from}
     Wants to contact
     '''
 

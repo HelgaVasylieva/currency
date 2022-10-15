@@ -138,7 +138,7 @@ class ContactUsCreateView(generic.CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        send_contact_us_email.delay(self.object.subject, self.object.from_email)
+        send_contact_us_email.delay(self.object.subject, self.object.email_from)
         return response
 
 
