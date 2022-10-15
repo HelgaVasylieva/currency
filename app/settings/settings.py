@@ -225,6 +225,7 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'currency': '20/min',
     },
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 SIMPLE_JWT = {

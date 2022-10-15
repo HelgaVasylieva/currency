@@ -1,0 +1,66 @@
+[{"model": "currency.source", "pk": 2, "fields": {
+  "code_name": "Monobank",
+  "logo": "logo/2/logo.jpg.c464263109a225f3ff684c26c0994b8d.jpg",
+  "name": "Monobank",
+  "source_url": "https://api.monobank.ua/bank/currency"
+}},
+  {
+    "fields": {
+      "source_url": "https://vkurse.dp.ua/course.json",
+      "name": "Vkurse_DP_UA",
+      "code_name": "Vkurse_dp_ua",
+      "logo": "logo/3/59f061cc6b349.jpeg"
+    },
+    "model": "currency.source",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "source_url": "https://tascombank.ua/api/currencies",
+      "name": "Tascombank",
+      "code_name": "Tascombank",
+      "logo": "logo/4/download.png"
+    },
+    "model": "currency.source",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "source_url": "https://www.otpbank.com.ua/local/components/otp/utils.exchange_rate_arc/exchange_rate_by_date.php?curr_date=18.09.2022&ib_code=otp_bank_currency_rates",
+      "name": "OTPBank",
+      "code_name": "OTPbank",
+      "logo": "logo/5/otp-main.png"
+    },
+    "model": "currency.source",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "source_url": "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json",
+      "name": "NBU",
+      "code_name": "NBU",
+      "logo": "logo/7/1024px-NBU_logo.svg.png"
+    },
+    "model": "currency.source",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "source_url": "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11",
+      "name": "PrivatBank",
+      "code_name": "",
+      "logo": "logo/8/be6ea8ea5161dc9be3fa9eb4b2fa1fdea222cebc.png"
+    },
+    "model": "currency.source",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "source_url": "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11",
+      "name": "",
+      "code_name": "PrivatBank",
+      "logo": ""
+    },
+    "model": "currency.source",
+    "pk": 9
+  }]
