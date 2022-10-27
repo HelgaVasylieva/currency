@@ -1,0 +1,32 @@
+[{"model": "currency.rate", "pk": 319, "fields": {"base_currency_type": "UAH", "currency_type": "USD", "sale": "37.499", "buy": "36.650", "source": 2, "created": "2022-09-17T13:09:00.432Z"}}, {"model": "currency.rate", "pk": 321, "fields": {
+  "base_currency_type": "UAH",
+  "buy": "36.650",
+  "created": "2022-09-17T13:20:58.267Z",
+  "currency_type": "EUR",
+  "sale": "37.651",
+  "source": 2
+}},
+  {
+    "fields": {
+      "base_currency_type": "UAH",
+      "currency_type": "EUR",
+      "sale": "37.700",
+      "buy": "36.700",
+      "source": 2,
+      "created": "2022-09-18T15:09:58.620Z"
+    },
+    "model": "currency.rate",
+    "pk": 323
+  },
+  {
+    "fields": {
+      "base_currency_type": "UAH",
+      "currency_type": "{'buy': '41.85', 'sale': '42.25'}",
+      "sale": "42.250",
+      "buy": "41.850",
+      "source": 3,
+      "created": "2022-09-18T15:59:41.861Z"
+    },
+    "model": "currency.rate",
+    "pk": 329
+  }]

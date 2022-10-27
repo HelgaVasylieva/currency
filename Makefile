@@ -11,9 +11,6 @@ run:
 show_urls:
 	$(manage_py) show_urls
 
-show_urls:
-	$(manage_py) show_urls
-
 migrate:
 	$(manage_py) migrate
 
@@ -28,3 +25,6 @@ celery:
 
 celerybeat:
 	cd app && celery -A settings beat --loglevel=INFO
+
+pytest:
+	pytest app/tests/

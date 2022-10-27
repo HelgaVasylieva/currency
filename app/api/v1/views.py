@@ -7,10 +7,10 @@ from rest_framework import filters as rest_framework_filters
 
 from currency.tasks import send_contact_us_email
 from currency.models import Rate, Source, ContactUs
-from api.serializers import RateSerializer, SourceSerializer, ContactUsSerializer
-from api.pagination import RatePagination
-from api.filters import RateFilter, SourceFilter, ContactUsFilter
-from api.throttles import AnonCurrencyModelThrottle
+from api.v1.serializers import RateSerializer, SourceSerializer, ContactUsSerializer
+from api.v1.pagination import RatePagination
+from api.v1.filters import RateFilter, SourceFilter, ContactUsFilter
+from api.v1.throttles import AnonCurrencyModelThrottle
 
 
 class RatesView(generics.ListCreateAPIView):
