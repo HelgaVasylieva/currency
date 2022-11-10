@@ -24,3 +24,5 @@ flake8-builtins==1.5.3
 # pytest
 pytest
 pytest-django
+pytest-cov
+pytest-mock

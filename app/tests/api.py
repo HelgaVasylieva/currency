@@ -1,20 +1,19 @@
 from rest_framework.reverse import reverse
-from rest_framework.test import APIClient
+
 import pytest
 
 
-def test_rates_get():
-    client = APIClient()
+def test_rates_get(api_client_auth):
 
-    response = client.get(reverse('api-v1:rates'))
+    response = api_client_auth.get(reverse('api-v1:rates'))
     assert response.status_code == 200
     assert response.json()['count']
     assert response.json()['results']
 
 
-def test_rates_post_empty():
-    client = APIClient()
-    response = client.post(reverse('api-v1:rates'), data={})
+def test_rates_post_empty(api_client_auth):
+
+    response = api_client_auth.post(reverse('api-v1:rates'), data={})
     assert response.status_code == 400
     assert response.json() == {
         'buy': ['This field is required.'],
@@ -25,15 +24,15 @@ def test_rates_post_empty():
     }
 
 
-def test_contactus_get():
-    client = APIClient()
-    response = client.get(reverse('api-v1:contact-list'))
+def test_contactus_get(api_client_auth):
+
+    response = api_client_auth.get(reverse('api-v1:contact-list'))
     assert response.status_code == 200
 
 
-def test_contactus_post_empty():
-    client = APIClient()
-    response = client.post(reverse('api-v1:contact-list'), data={})
+def test_contactus_post_empty(api_client_auth):
+
+    response = api_client_auth.post(reverse('api-v1:contact-list'), data={})
     assert response.status_code == 400
     assert response.json() == {
         'email_from': ['This field is required.'],
@@ -43,15 +42,15 @@ def test_contactus_post_empty():
     }
 
 
-def test_contactus_post_valid(client, mailoutbox):
+def test_contactus_post_valid(api_client_auth, mailoutbox):
     data = {
         'email_from': 'example@mail.com',
         'email_to': 'example@mail.com',
         'subject': 'subject example',
         'message': 'Body Example',
     }
-    client = APIClient()
-    response = client.post(reverse('api-v1:contact-list'), data=data)
+
+    response = api_client_auth.post(reverse('api-v1:contact-list'), data=data)
     assert response.status_code == 200
 
     assert len(mailoutbox) == 1
@@ -59,14 +58,14 @@ def test_contactus_post_valid(client, mailoutbox):
 
 
 @pytest.mark.parametrize('email_from', ('examplemail.com', "17638174.dhfbh", "GdjdjJKd"))
-def test_contactus_post_invalid_email(client, email_from):
+def test_contactus_post_invalid_email(api_client_auth, email_from):
     data = {
         'email_from': email_from,
         'email_to': 'example@mail.com',
         'subject': 'subject example',
         'message': 'Body Example',
     }
-    client = APIClient()
-    response = client.post(reverse('api-v1:contact-list'), data=data)
+
+    response = api_client_auth.post(reverse('api-v1:contact-list'), data=data)
     assert response.status_code == 400
     assert response.json() == {'email_from': ['Enter a valid email address.']}
