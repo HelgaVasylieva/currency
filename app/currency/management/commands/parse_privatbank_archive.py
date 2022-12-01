@@ -15,4 +15,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print(f'Rates count:', Rate.objects.count())
-        dt = options['date'] or datetime.now().date()
+
