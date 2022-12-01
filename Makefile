@@ -34,3 +34,23 @@ coverage:
 
 show-coverage:  ## open coverage HTML report in default browser
 	python3 -c "import webbrowser; webbrowser.open('.pytest_cache/coverage/index.html')"
+
+gunicorn:
+	cd app && gunicorn settings.wsgi:application \
+											--bind 0.0.0.0:8000 \
+											--workers 8 \
+											--threads 2 \
+											--log-level debug \
+											--max-requests 1000 \
+											--timeout 10
+
+uwsgi:
+	cd app && uwsgi --module=settings.wsgi:application \
+					--master \
+					--http=0.0.0.0:8001 \
+					--workers 8 \
+					--enable-threads \
+					--threads 2 \
+					--harakiri=10 \
+					--max-requests=1000 \
+

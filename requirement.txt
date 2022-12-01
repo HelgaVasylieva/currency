@@ -11,6 +11,8 @@ celery
 djangorestframework
 djangorestframework-simplejwt
 drf-yasg
+gunicorn
+uwsgi
 
 #dev
 django-debug-toolbar
