@@ -15,4 +15,3 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print(f'Rates count:', Rate.objects.count())
-
